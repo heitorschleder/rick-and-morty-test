@@ -10,4 +10,9 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  runtimeConfig: {
+    public: {
+      graphqlUrl: 'https://rickandmortyapi.com/graphql'
+    }
+  }
 })
