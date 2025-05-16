@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'PortalFont';
+  src: url('../fonts/portal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Você pode adicionar uma classe utilitária */
+.font-portal {
+  font-family: 'PortalFont', sans-serif;
+}

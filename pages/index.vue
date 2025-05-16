@@ -35,7 +35,7 @@ const navigateToCharacter = (id: string) => {
     <div class="min-h-screen">
       <nav class="flex justify-center pt-4">
         <NuxtLink to="/" class="text-2xl font-bold text-gray-800">
-          <img src="../src/images/logo.png" alt="Logo Rick and Morty" />
+          <img class="h-32" src="../src/images/logo.png" alt="Logo Rick and Morty" />
         </NuxtLink>
       </nav>
       <div class="container mx-auto p-4">

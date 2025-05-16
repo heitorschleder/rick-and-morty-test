@@ -84,7 +84,7 @@ onMounted(() => {
     <div class="min-h-screen bg-fixed bg-center bg-cover"
     style="background-image: url('/images/space.jpg')">
         <nav class="flex justify-center">
-            <NuxtLink to="/"><img class="" src="@/src/images/logo.png" alt="Logo Rick and Morty"></NuxtLink>
+            <NuxtLink to="/"><img class="h-32" src="@/src/images/logo.png" alt="Logo Rick and Morty"></NuxtLink>
         </nav>
         <div class="container mx-auto p-4">
             <div v-if="character" class="bg-white rounded-lg shadow-md overflow-hidden">
