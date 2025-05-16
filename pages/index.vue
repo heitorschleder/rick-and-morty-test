@@ -6,7 +6,15 @@ const router = useRouter()
 const searchQuery = ref('')
 const page = ref(1)
 const hasNextPage = ref(true)
-const characters = ref([])
+
+interface Character {
+  id: string
+  name: string
+  species: string
+  image: string
+}
+
+const characters = ref<Character[]>([])
 
 const CHARACTERS_QUERY = gql`
   query GetCharacters($page: Int!, $name: String) {
@@ -33,7 +41,7 @@ const fetchCharacters = async () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        query: CHARACTERS_QUERY.loc.source.body,
+        query: CHARACTERS_QUERY.loc?.source.body,
         variables: {
           page: page.value,
           name: searchQuery.value || undefined,
@@ -76,7 +84,7 @@ onMounted(() => {
   >
   
     <div class="backdrop-blur-sm min-h-screen">
-      <nav class="flex items-center">
+      <nav class="flex justify-center pt-4">
       <NuxtLink to="/" class="text-2xl font-bold text-gray-800"><img src="../src/images/logo.png" alt="Logo Rick and Morty"></NuxtLink>
     </nav>
       <div class="container mx-auto p-4">
@@ -85,7 +93,7 @@ onMounted(() => {
             v-model="searchQuery"
             type="text"
             placeholder="Search characters..."
-            class="w-full p-2 border rounded-lg"
+            class="w-full p-2 border border-green rounded-lg"
             @input="handleSearch"
           />
         </div>
