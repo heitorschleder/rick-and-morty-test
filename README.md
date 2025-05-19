@@ -1,75 +1,33 @@
-# Nuxt Minimal Starter
+# 🔍 Rick and Morty Explorer
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A sleek and responsive Nuxt 3 web app that allows users to **search for specific characters** and **browse the complete list** of characters from the **Rick and Morty** universe using the public GraphQL API.
 
-## Setup
+## 🚀 Tech Stack
 
-Make sure to install dependencies:
+- **Nuxt 3** – The intuitive Vue 3 framework for building modern web apps  
+- **GraphQL** – Used to query character data efficiently  
+- **TailwindCSS** – For fast, responsive, and customizable UI styling  
+
+## ✨ Features
+
+- 🔎 **Character Search** – Type a name to search for any character  
+- 📜 **Character List** – Paginated list with clean, card-based layout  
+- 🧬 **Character Detail View** – Click to view character info and episodes  
+- 🎨 **Fully Responsive** – Optimized layout for mobile, tablet, and desktop  
+
+## 📦 Project Setup
+
+Make sure you have **Node.js 18+** and **Yarn** installed.
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
+# Install dependencies
 yarn install
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
+# Run development server
 yarn dev
 
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
+# Build for production
 yarn build
 
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
+# Preview production build
 yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
