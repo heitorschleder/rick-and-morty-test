@@ -8,20 +8,62 @@ defineEmits(['changePage'])
 </script>
 
 <template>
-  <div class="mt-6 flex justify-center gap-4">
+  <div class="portal-container">
     <button
       v-if="page > 1"
       @click="$emit('changePage', page - 1)"
-      class="px-4 py-2 bg-blue-500 text-white rounded-lg"
+      class="rick-button"
     >
-      Previous
+      🌀 Back to the Past
     </button>
     <button
       v-if="hasNextPage"
       @click="$emit('changePage', page + 1)"
-      class="px-4 py-2 bg-blue-500 text-white rounded-lg"
+      class="rick-button"
     >
-      Next
+      🚀 Onward, Morty!
     </button>
   </div>
 </template>
+
+<style scoped>
+.rick-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  color: #1b1b1b;
+  background: linear-gradient(145deg, #7eff6c, #00ffea);
+  box-shadow: 0 0 10px #7eff6c, 0 0 5px #00ffea;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  cursor: pointer;
+}
+
+.rick-button:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 0 20px #00ffea, 0 0 10px #7eff6c;
+}
+
+.rick-button:active {
+  transform: scale(0.95) rotate(2deg);
+  background: linear-gradient(145deg, #b6ff7a, #76fff6);
+}
+
+.portal-container {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  animation: portalGlow 3s infinite alternate;
+}
+
+@keyframes portalGlow {
+  0% {
+    filter: drop-shadow(0 0 2px #7eff6c);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px #00ffea);
+  }
+}
+</style>

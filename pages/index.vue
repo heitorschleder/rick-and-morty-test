@@ -22,7 +22,6 @@ const {
 
 const handleSearch = () => {
   page.value = 1
-  fetchCharacters()
 }
 
 const navigateToCharacter = (id: string) => {
