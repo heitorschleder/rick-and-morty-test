@@ -27,6 +27,7 @@ defineEmits(['changePage'])
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 .rick-button {
   padding: 0.5rem 1rem;
   border: none;
@@ -36,7 +37,7 @@ defineEmits(['changePage'])
   background: linear-gradient(145deg, #7eff6c, #00ffea);
   box-shadow: 0 0 10px #7eff6c, 0 0 5px #00ffea;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-family: 'Share Tech Mono', monospace;
   cursor: pointer;
 }
 
