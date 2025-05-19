@@ -26,6 +26,8 @@ const onInput = () => {
   </div>
 </template>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 @media (max-width: 510px) {
 .rick-input {
   width: 320px!important;
@@ -40,7 +42,7 @@ const onInput = () => {
   background-color: #121212;
   color: #7eff6c;
   font-size: 1rem;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  font-family: 'Share Tech Mono', monospace;
   box-shadow: inset 0 0 10px #00ffea;
   outline: none;
   transition: box-shadow 0.3s ease, transform 0.2s ease;

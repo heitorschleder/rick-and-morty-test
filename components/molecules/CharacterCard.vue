@@ -180,7 +180,7 @@ const eyes = getRandomEyeAdjective()
     font-size: 12px;
   }
   .character-name {
-    font-size: 28px;
+    font-size: 17px;
   }
   .character-adress {
     font-size: 15px;
