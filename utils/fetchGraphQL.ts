@@ -1,10 +1,15 @@
-export async function fetchGraphQL(query: string, variables?: Record<string, any>) {
+import type { DocumentNode } from 'graphql'
+
+export async function fetchGraphQL(query: DocumentNode, variables: Record<string, any> = {}) {
   const response = await fetch('https://rickandmortyapi.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ query, variables }),
+     body: JSON.stringify({
+      query: query.loc?.source.body,
+      variables,
+    }),
   })
 
   const { data, errors } = await response.json()

@@ -1,77 +1,30 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import gql from 'graphql-tag'
 import { useRoute } from 'vue-router'
+import { onMounted } from 'vue'
 
+import PageBackground from '@/components/atoms/PageBackground.vue'
 import CharacterDetails from '@/components/molecules/CharacterDetails.vue'
 import EpisodeCard from '@/components/molecules/EpisodeCard.vue'
 
+import { useCharacterById } from '@/composables/useCharacterById'
+
 const route = useRoute()
+const {
+  character,
+  error,
+  fetchCharacter
+} = useCharacterById(route.params.id as string)
 
-interface Character {
-  id: string
-  name: string
-  status: string
-  species: string
-  type: string
-  gender: string
-  origin: { name: string }
-  location: { name: string }
-  image: string
-  episode: {
-    id: string
-    name: string
-    air_date: string
-    episode: string
-  }[]
-}
-
-const character = ref<Character | null>(null)
-
-const CHARACTER_QUERY = gql`
-  query GetCharacter($id: ID!) {
-    character(id: $id) {
-      id
-      name
-      status
-      species
-      type
-      gender
-      origin { name }
-      location { name }
-      image
-      episode {
-        id
-        name
-        air_date
-        episode
-      }
-    }
+onMounted(async () => {
+  await fetchCharacter()
+  if (!character.value) {
+    console.error('Erro ao buscar personagem:', error.value)
   }
-`
-
-const fetchCharacter = async () => {
-  try {
-    const { data } = await fetch('https://rickandmortyapi.com/graphql', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        query: CHARACTER_QUERY.loc?.source.body,
-        variables: { id: route.params.id },
-      }),
-    }).then(res => res.json())
-
-    character.value = data.character
-  } catch (error) {
-    console.error('Error fetching character:', error)
-  }
-}
-
-onMounted(fetchCharacter)
+})
 </script>
 
 <template>
-  <div class="min-h-screen bg-fixed bg-center bg-cover" style="background-image: url('/images/space.jpg')">
+  <PageBackground backgroundImage="/images/space.jpg">
     <nav class="flex justify-center py-6">
       <NuxtLink to="/">
         <img class="h-32 hover:scale-110 transition-transform duration-300" src="@/src/images/logo.png" alt="Logo Rick and Morty" />
@@ -90,7 +43,7 @@ onMounted(fetchCharacter)
         </div>
       </div>
     </div>
-  </div>
+  </PageBackground>
 </template>
 
 <style scoped>

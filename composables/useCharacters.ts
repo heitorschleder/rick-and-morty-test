@@ -21,7 +21,7 @@ export function useCharacters(searchQuery = ref('')) {
     error.value = null
 
     try {
-      const data = await fetchGraphQL(GET_CHARACTERS.loc?.source.body!, {
+      const data = await fetchGraphQL(GET_CHARACTERS, {
         page: page.value,
         name: searchQuery.value || undefined,
       })
