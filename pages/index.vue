@@ -37,7 +37,7 @@ const navigateToCharacter = (id: string) => {
           <img class="h-32" src="../src/images/logo.png" alt="Logo Rick and Morty" />
         </NuxtLink>
       </nav>
-      <div class="container mx-auto p-4">
+      <div class="licenses-list container mx-auto p-4">
         <div class="mb-6">
           <SearchInput v-model="searchQuery" @search="handleSearch" />
         </div>
@@ -47,3 +47,10 @@ const navigateToCharacter = (id: string) => {
     </div>
   </PageBackground>
 </template>
+<style scoped>
+@media (max-width: 510px) {
+  .licenses-list {
+    padding: 0px;
+}
+}
+</style>

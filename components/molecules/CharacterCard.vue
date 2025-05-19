@@ -47,21 +47,58 @@ const getRandomRestriction = () => {
 const restriction = getRandomRestriction()
 
 const address = getRandomAddress()
+
+const getRandomHeight = () => {
+  const feet = Math.floor(Math.random() * 3) + 4
+  const inches = Math.floor(Math.random() * 12)
+  return `${feet}'${inches}"`
+}
+
+const height = getRandomHeight()
+
+const getRandomWeight = () => {
+  const weight = Math.floor(Math.random() * (120 - 50 + 1)) + 50
+  return `${weight}lbs`
+}
+
+const weight = getRandomWeight()
+
+const eyeAdjectives = [
+  "Squiggles",
+  "Laser",
+  "Bugged",
+  "Empty",
+  "Curious",
+  "Angry",
+  "Hypno",
+  "None",
+  "Swirly",
+  "Judgmental",
+  "Dimensional",
+  "Unblinking"
+]
+
+const getRandomEyeAdjective = () => {
+  const index = Math.floor(Math.random() * eyeAdjectives.length)
+  return eyeAdjectives[index]
+}
+
+const eyes = getRandomEyeAdjective()
+
 </script>
 
 <template>
   <div
-    class=" max-w-xl w-[30rem] h-80 bg-gradient-to-b from-green-700 to-gray-300 rounded-lg shadow-lg text-black font-mono cursor-pointer border border-black overflow-hidden"
+    class="license-portal max-w-xl w-[30rem] h-80 bg-gradient-to-b from-green-700 to-gray-300 rounded-lg shadow-lg text-black font-mono cursor-pointer border border-black overflow-hidden"
     @click="$emit('click', character.id)">
     <!-- Top Banner -->
     <div class="bg-[#4D9242] px-4 py-2 text-3xl font-bold text-[#44BED5] tracking-widest text-center font-portal">
       portal license
     </div>
 
-    <div class=" bg-gray-200 relative h-[calc(100%-3.5rem)] p-4">
-      <!-- Main Info Row -->
+    <div class="bg-gray-200 relative h-[calc(100%-3.5rem)] p-4">
       <!-- License Info -->
-      <div class="flex justify-around mt-[-10px] mb-4 w-full text-sm space-y-1 font-semibold">
+      <div class="licenses flex justify-around mt-[-10px] mb-4 w-full text-sm space-y-1 font-semibold">
         <div class="flex flex-col text-center">
           <span class="text-center">License #</span>
           <span class="text-center">JR-DH-C.{{ character.id }}</span>
@@ -84,33 +121,33 @@ const address = getRandomAddress()
         <!-- Character Image -->
         <div class="w-1/3">
           <img :src="character.image" :alt="character.name"
-            class="relative z-50 w-full h-32 object-cover border border-black rounded-sm" />
+            class="character-image relative z-50 w-full h-32 object-cover border border-black rounded-sm" />
         </div>
 
         <div class="flex flex-col text-center w-64">
           <!-- Name -->
-          <div class="mt-3 text-[1.9rem] font-bold text-[#29778B] drop-shadow-md truncate font-portal">
+          <div class="character-name mt-3 text-[1.9rem] font-bold text-[#29778B] drop-shadow-md truncate font-portal">
             {{ character.name }}
           </div>
           <!-- Address -->
-          <div class="text-center text-base mt-1 font-semibold" v-html="address">
+          <div class="character-adress text-center text-base mt-1 font-semibold" v-html="address">
           </div>
         </div>
       </div>
 
       <!-- Bottom Traits -->
-      <div class="grid grid-cols-5 gap-2 text-xs mt-4 font-semibold">
+      <div class="bottom-traits grid grid-cols-5 gap-2 text-xs mt-4 font-semibold">
         <div class="text-center">
           <div>Sex</div>
           <div>?</div>
         </div>
         <div class="text-center">
           <div>Height</div>
-          <div>5”</div>
+          <div>{{ height }}</div>
         </div>
         <div class="text-center">
           <div>Weight</div>
-          <div>0.5lbs</div>
+          <div>{{ weight }}</div>
         </div>
         <div class="text-center">
           <div>Hair</div>
@@ -118,7 +155,7 @@ const address = getRandomAddress()
         </div>
         <div class="text-center">
           <div>Eyes</div>
-          <div>Squiggles</div>
+          <div>{{ eyes }}</div>
         </div>
       </div>
 
@@ -128,3 +165,29 @@ const address = getRandomAddress()
     </div>
   </div>
 </template>
+
+<style scoped>
+
+@media (max-width: 510px) {
+  .license-portal {
+    width: 317px;
+    height: 291px;
+  }
+  .card-header {
+    font-size: 20px;
+  }
+  .licenses {
+    font-size: 12px;
+  }
+  .character-name {
+    font-size: 28px;
+  }
+  .character-adress {
+    font-size: 15px;
+  }
+  .bottom-traits {
+    font-size: 12px;
+  }
+
+}
+</style>
